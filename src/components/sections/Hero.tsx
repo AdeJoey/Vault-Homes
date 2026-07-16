@@ -56,12 +56,12 @@ export function Hero() {
           className="flex flex-col items-center w-full"
         >
           {/* Headline */}
-          <h1 className="text-[40px] md:text-[55px] font-bold text-black tracking-[-0.03em] mb-6 md:mb-4 leading-[1.05] max-w-[340px] md:max-w-none">
+          <h1 className="text-[40px] md:text-[55px] font-medium text-black tracking-[-0.03em] mb-6 md:mb-4 leading-[1.05] max-w-[340px] md:max-w-none">
             Get first access<br className="md:hidden" /> to private Lagos<br className="md:hidden" /> homes
           </h1>
 
           {/* Sub-line */}
-          <p className="text-[17px] md:text-[20px] text-black mb-10 max-w-[300px] md:max-w-2xl font-normal leading-[1.3]">
+          <p className="text-[15px] md:text-[20px] text-black mb-10 max-w-[300px] md:max-w-2xl font-normal leading-[1.3]">
             Vault Homes connects<br className="md:hidden" /> discreet sellers with serious<br className="md:hidden" /> buyers and investors.
           </p>
         </motion.div>
