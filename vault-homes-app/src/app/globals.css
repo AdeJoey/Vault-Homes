@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Brand Colors */
+  --color-primary: #E5ED64;
+  --color-primary-light: #F9FF99;
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-muted: #E0E3EA;
+  --color-dark: #363631;
+
+  /* Button Gradient */
+  --bg-gradient-btn: linear-gradient(to right, var(--color-primary-light) 0%, var(--color-primary) 100%);
+}
+
+@theme inline {
+  --color-brand-primary: var(--color-primary);
+  --color-brand-primary-light: var(--color-primary-light);
+  --color-brand-background: var(--color-background);
+  --color-brand-foreground: var(--color-foreground);
+  --color-brand-muted: var(--color-muted);
+  --color-brand-dark: var(--color-dark);
+
+  --font-sans: var(--font-kufam), Arial, Helvetica, sans-serif;
+
+  --animate-accordion-down: accordion-down 1s ease-in-out;
+  --animate-accordion-up: accordion-up 1s ease-in-out;
+}
+
+body {
+  background-color: var(--color-brand-background);
+  color: var(--color-brand-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-gradient {
+  background: var(--bg-gradient-btn);
+}
+
+/* ── Global Cursors ── */
+a, button, [role="button"] {
+  cursor: pointer !important;
+}
+
+/* ── Infinite Marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* ── Accordion animations ── */
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
+}
+/* Note: animate-accordion-down and up are defined in @theme inline so they work with Tailwind variants */
+
+/* ── Insights Slider fade ── */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-slide {
+  animation: fadeSlide 0.45s ease-out forwards;
+}

@@ -1,0 +1,88 @@
+// Vault Homes — Prisma Schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Lead {
+  id                     String   @id @default(cuid())
+  leadType               String   @map("lead_type") // SELLER or INVESTOR
+  status                 String   @default("new") // new, reviewing, approved, matched, closed, archived
+
+  // Shared
+  fullName               String   @map("full_name")
+  email                  String?
+  phone                  String?
+  preferredContactMethod String?  @map("preferred_contact_method")
+
+  // Lead Source & Tracking
+  source                 String?
+  sourcePage             String?  @map("source_page")
+  referrer               String?
+  utmSource              String?  @map("utm_source")
+  utmMedium              String?  @map("utm_medium")
+  utmCampaign            String?  @map("utm_campaign")
+  utmContent             String?  @map("utm_content")
+  utmTerm                String?  @map("utm_term")
+
+  // Seller-specific
+  propertyLocation       String?  @map("property_location")
+  propertyType           String?  @map("property_type")
+  sellingTimeline        String?  @map("selling_timeline")
+  occupancyStatus        String?  @map("occupancy_status")
+  priceExpectation       String?  @map("price_expectation")
+  notes                  String?
+  photoUrls              String?  @map("photo_urls") // Stored as JSON stringified array
+  videoUrls              String?  @map("video_urls")
+  documentUrls           String?  @map("document_urls")
+
+  // Investor-specific
+  preferredArea          String?  @map("preferred_area")
+  budgetMin              Float?   @map("budget_min")
+  budgetMax              Float?   @map("budget_max")
+  assetType              String?  @map("asset_type")
+  buyingTimeline         String?  @map("buying_timeline")
+  useCase                String?  @map("use_case")
+  cashBuyer              Boolean? @map("cash_buyer")
+  riskPreference         String?  @map("risk_preference")
+
+  createdAt              DateTime @default(now()) @map("created_at")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+
+  @@map("leads")
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  fullName  String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+
+  @@map("contact_submissions")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String
+  details   String?  // JSON stringified details
+  ipAddress String?  @map("ip_address")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("audit_logs")
+}
+
+model Match {
+  id         String   @id @default(cuid())
+  sellerId   String   @map("seller_id")
+  investorId String   @map("investor_id")
+  notes      String?  // Admin's private introduction notes
+  confirmedAt DateTime @default(now()) @map("confirmed_at")
+
+  @@map("matches")
+}
