@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { insights } from "@/lib/data/insights";
+import { buildInsightMetadata } from "@/lib/metadata";
 
 // Generate static parameters for all known insights
 export function generateStaticParams() {
@@ -10,6 +12,19 @@ export function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
+// Dynamic per-article metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = insights.find((p) => p.slug === slug);
+  if (!post) return {};
+  return buildInsightMetadata(post);
+}
+
 
 export default async function InsightPage({
   params,

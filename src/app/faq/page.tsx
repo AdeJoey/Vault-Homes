@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FAQSection } from "@/components/sections/FAQ";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: pageMetadata.faq.title,
+  description: pageMetadata.faq.description,
+  keywords: pageMetadata.faq.keywords as string[],
+  alternates: { canonical: pageMetadata.faq.canonical },
+  openGraph: {
+    type: "website",
+    url: pageMetadata.faq.canonical,
+    title: pageMetadata.faq.title,
+    description: pageMetadata.faq.description,
+  },
+};
+
 
 export default function FAQPage() {
   return (

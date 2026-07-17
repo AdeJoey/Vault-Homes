@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -7,6 +8,30 @@ import { WhyVaultHomes } from "@/components/sections/WhyVaultHomes";
 import { FeaturedInsights } from "@/components/sections/FeaturedInsights";
 import { FAQSection } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { pageMetadata, GLOBAL_KEYWORDS } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: pageMetadata.home.title,
+  description: pageMetadata.home.description,
+  keywords: GLOBAL_KEYWORDS,
+  alternates: { canonical: pageMetadata.home.canonical },
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: pageMetadata.home.canonical,
+    siteName: "Vault Homes",
+    title: pageMetadata.home.title,
+    description: pageMetadata.home.description,
+    images: [{ url: "/Assets/Hero desktop.png", width: 1200, height: 630, alt: "Vault Homes — Private Property Access in Lagos" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageMetadata.home.title,
+    description: pageMetadata.home.description,
+    images: ["/Assets/Hero desktop.png"],
+  },
+};
+
 
 export default function Home() {
   return (
