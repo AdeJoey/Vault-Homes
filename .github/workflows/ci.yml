@@ -19,22 +19,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Type check
-        run: npm run type-check
+        run: pnpm run type-check
 
       - name: Run tests
-        run: npm test -- --passWithNoTests --ci
+        run: pnpm test -- --passWithNoTests --ci
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://vaulthomes.com
           NEXT_PUBLIC_WHATSAPP_NUMBER: "2348117682654"
