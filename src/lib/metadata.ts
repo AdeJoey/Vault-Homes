@@ -27,6 +27,11 @@ export const defaultMetadata: Metadata = {
   authors: [{ name: "Vault Homes" }],
   creator: "Vault Homes",
   publisher: "Vault Homes",
+  icons: {
+    icon: "/Assets/Favicon.png",
+    shortcut: "/Assets/Favicon.png",
+    apple: "/Assets/Favicon.png",
+  },
   robots: {
     index: true,
     follow: true,
