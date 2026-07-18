@@ -364,7 +364,7 @@ export const pageMetadata = {
     canonical: `${SITE_URL}/terms-of-use`,
     keywords: ["vault homes terms of use", "property platform terms Nigeria"],
   },
-} as const;
+};
 
 // ─── Helper: build per-insight metadata ────────────────────────────────────
 export function buildInsightMetadata(insight: {
