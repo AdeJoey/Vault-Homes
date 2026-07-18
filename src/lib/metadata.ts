@@ -192,7 +192,7 @@ export const defaultMetadata: Metadata = {
     canonical: SITE_URL,
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
+    google: "THSDTrFDZnlFOg1YJfQqfBC5Iw6nVLD-MfZp2rDvGTY",
   },
   other: {
     "geo.region": "NG-LA",
