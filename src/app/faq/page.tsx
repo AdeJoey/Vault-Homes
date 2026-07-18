@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: pageMetadata.faq.title,
   description: pageMetadata.faq.description,
-  keywords: pageMetadata.faq.keywords as string[],
+  keywords: [...pageMetadata.faq.keywords],
   alternates: { canonical: pageMetadata.faq.canonical },
   openGraph: {
     type: "website",

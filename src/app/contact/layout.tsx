@@ -6,7 +6,7 @@ const p = pageMetadata.contact;
 export const metadata: Metadata = {
   title: p.title,
   description: p.description,
-  keywords: p.keywords as string[],
+  keywords: [...p.keywords],
   alternates: { canonical: p.canonical },
   openGraph: {
     type: "website",
