@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { insights } from "@/lib/data/insights";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vaulthomes.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vault-homes.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

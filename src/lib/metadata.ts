@@ -7,7 +7,7 @@
 import type { Metadata } from "next";
 
 const SITE_NAME = "Vault Homes";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vaulthomes.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vault-homes.vercel.app";
 
 // ─── Master keyword list (100+ keywords) ───────────────────────────────────
 export const GLOBAL_KEYWORDS = [
